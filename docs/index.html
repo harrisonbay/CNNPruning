@@ -20,13 +20,57 @@ You may also want to say a little bit here about what you did. Not too much thou
 
 ## Related Work
 
-Other people are out there doing things. What did they do? Was it good? Was it bad? Talk about it here.
+In recent years, there has been much interest in the area of neural network compression. The seminal paper of [1] explored several different methods of compression,
+including weight pruning, huffman coding, weight quantization, and weight sharing. In this project, we focus on pruning methods, but investigate means of pruning full feature maps in
+convolutional neural networks rather than single weights.
+
+Our project compares [2, 3, 4, 5], which are all works that propose various methods of pruning feature maps. We repurpose the approaches, and analyze
+their efficacy based on the performance on the downstream transfer learning task described above. The approaches, along with their underlying assumptions,
+are discussed in detail in the next section
+
 
 ## Approach
+For our experiments, we first obtain a VGG-19 with batch norm that has been pretrained on ImageNet, prune a certain percent of feature maps from each layers,
+and fine-tune on the target dataset for five epochs using SGD with a very small learning rate (lr = 1e-5). We discuss all of the candidate
+pruning methods, and categorize them based on their assumptions, below.
 
-How did you decide to solve the problem? What network architecture did you use? What data? Lots of details here about all the things you did. This section describes almost your whole project.
+### Data-Free Pruning Methods
+#### K-Means Clustering
+In overparameterized models, there are typically many redundant filters that extract similar features. Therefore, a natural pruning objective
+is to maximize filter diversity in each convolutional layer. Therefore, if we want to retain n filters in a given layer, we apply k-means clustering
+to recover n centroids, and select the n filters that are closest to the centroids. We use Euclidean distance to quantify the distance between two filters.
+Note that this method applies clustering on the filters themselves, rather than their activations so this method is independent of the target dataset distribution.
 
-Figures are good here. Maybe you present your network architecture or show some example data points?
+### Label-Free Pruning Methods
+#### L2-norm
+Intuitively, filters that produce low magnitude activations are probably less salient and can be safely removed. Based on this notion, we generate a
+small subset of data from the target dataset, pass it through the model, recover the activations of each layer, and retain the n filters whose feature
+maps have the highest L2-norms. This method relies on the target data, but does not require them to be labelled.
+
+#### HRank
+The HRank method, as proposed in [6], suggests using a slightly more sophisticated ranking criteria than the l2-norm of the feature maps. The paper argues that
+the rank of a feature map is a much more rich information measure that is more likely to be indicative of a filters saliency. This method is identical to the
+previous method, but instead of retaining the filters with the highest magnitudes, we retain the filters whose feature maps have the highest ranks. This method
+also requires us to feed a subset of the target dataset through the model.
+
+### Label-dependent Pruning Methods
+#### Gradient Based Pruning
+The final method that we implement is one that incorporates information about the gradient into the saliency metric. Mathematically, the saliency of
+a particular weight in a filter map can be expressed as the following: <br><br>
+
+                $$ s = | \frac{\partial L}{\partial w} w | $$
+
+<br><br> To compute the saliency of the entire feature map, we simply sum over the saliencies of each individual weight. Intuitively, the gradient captures
+the degree to which the output of the model depends on a particular weight and thus can lead to a more informed pruning criteria. However, this
+method requires a labelled subset of the target dataset.
+
+
+
+
+
+For the target dataset, we use the German Traffic Sign Recognition Benchmark [6] which consist of roughly 400000 images of traffic signs. We show
+some example images below.
+
 
 ## Results
 
