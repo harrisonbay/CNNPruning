@@ -31,14 +31,14 @@
 
     <section class="introduction text">
         <h2>Introduction</h2>
-        Since the early 2010's, it is has become increasingly apparent that convolutional neural networks are the model of choice for most vision tasks, consistently achieving
+        <p> Since the early 2010's, it is has become increasingly apparent that convolutional neural networks are the model of choice for most vision tasks, consistently achieving
         state of the art performance on image dataset benchmarks. Furthermore, these models learn representations that can be easily transferred; we can use a pretrained 
         model and fine tune it on a simpler target dataset and still achieve strong performance. However, most neural networks are overparameterized which can lead to high latency at inference time, making them
-        suboptimal for deployment on real time systems (e.g. autonomous cars). <br> <br>
+        suboptimal for deployment on real time systems (e.g. autonomous cars). <p>
         
-        Therefore, for our final project we aim to compress a VGG19 that has been pretrained on ImageNet by pruning filters from the convolutional layers, and fine tune it on the German Traffic
+        <p> Therefore, for our final project we aim to compress a VGG19 that has been pretrained on ImageNet by pruning filters from the convolutional layers, and fine tune it on the German Traffic
         Sign Dataset. Our objective is to identify methods that allow us to remove a large number of filters from the model, while ensuring that the resulting pruned model can still effectively learn the target dataset.
-        In the scope of this project, we implement several different pruning methods and evaluate the effectiveness of each approach based on the how well compressed model generalizes on the target dataset. 
+        In the scope of this project, we implement several different pruning methods and evaluate the effectiveness of each approach based on the how well compressed model generalizes on the target dataset. <p>
         
         
         
@@ -49,7 +49,7 @@
 
         <p>In recent years, there has been much interest in the area of neural network compression. The seminal paper of "Deep Compression: Compressing Deep Neural Networks With Pruning, Trained Quantization and Huffman Coding" explored several different methods of neural network compression (<a href="https://arxiv.org/pdf/1510.00149.pdf">Han et al., 2016</a>). In particular, the paper focuses on methods that compress based on  individual weights: they propose pruning by simply zeroing out weights below a certain magnitude, and weight quantization "bins" individual weights to discrete values. In contrast, our project focuses on pruning entire convolutional filters.</p>
 
-        <p>Two of the pruning methods we tested in our project include rank-based pruning and gradient-based pruning introduced by <a href="https://arxiv.org/pdf/2002.10179.pdf">Lin et al., 2020</a> and <a href="https://arxiv.org/pdf/1611.06440.pdf">Molchanov et al. 2017</a>, respectively. We repurpose the approaches and analyze their efficacy based on the performance on the downstream transfer learning task described above. The approaches, along with their underlying assumptions, are discussed in detail below.</p>
+        <p>Two of the pruning methods we tested in our project include rank-based pruning and gradient-based pruning introduced by <a href="https://arxiv.org/pdf/2002.10179.pdf">Lin et al., 2020</a> and <a href="https://arxiv.org/pdf/1611.06440.pdf">Molchanov et al. 2017</a>, respectively. We repurpose the approaches and analyze their efficacy based on the performance on the transfer learning task described above. The approaches, along with their underlying assumptions, are discussed in detail below.</p>
 
         <a href="#related-work-footnote">[1, 2, 3, 4]</a>
     </section>
@@ -63,7 +63,7 @@
     <section class="approach text">
         <h2>Approach</h2>
 
-        <p>For our experiments, we first obtain a VGG-19 with batch norm that has been pretrained on ImageNet, prune a certain percent of feature maps from each layers, and fine-tune on the target dataset for five epochs using SGD with a very small learning rate (lr = 1e-5). We discuss all of the candidate pruning methods, and categorize them based on their assumptions, below.</p>
+        <p>For our experiments, we first obtain a VGG-19 with batch norm that has been pretrained on ImageNet, prune a certain percent of feature maps from each layers, and fine-tune on the target dataset for three epochs using SGD with a very small learning rate (lr = 1e-3). We discuss all of the candidate pruning methods, and categorize them based on their assumptions, below.</p>
 
         <h3>Data-Free Pruning Methods</h3>
         <h4>K-means clustering</h4>
