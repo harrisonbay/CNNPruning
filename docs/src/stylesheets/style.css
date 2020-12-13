@@ -70,7 +70,7 @@ hr {
     border: 0;
     border-top: 3px double #8c8c8c;
     width: 800px;
-    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .title {
@@ -88,7 +88,6 @@ hr {
     font-size: 24px;
     text-align: center;
 }
-
 
 .diagram {
     margin: auto;
@@ -108,4 +107,14 @@ hr {
     max-width: 1000px;
     margin: auto;
     text-align: justify;
+}
+
+.text h2 {
+    text-align: center;
+}
+.displaymath {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: center;
 }
