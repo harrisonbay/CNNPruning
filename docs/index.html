@@ -10,13 +10,14 @@
     <section class="title">
         <h1>Pruning CNNs</h1>
         <h3>Harrison Bay &nbsp;&nbsp;&nbsp; Arnav Das</h3>
-        
+        <p><a href="" style="font-size: 20px">Source Code</a> | <a href="" style="font-size: 20px">blahblah</a>
+        </p>
     </section>
     <section class="diagram">
         <div class="nncontainer">
             <img class="nn" src="assets/images/unpruned.svg">
         </div>
-        <div class="nncontainer" style="padding-top:50px; padding-bottom:50px;">
+        <div class="nncontainer" style="padding-top:20px; padding-bottom:20px;">
             <img src="assets/images/arrow.svg">
             <text>50% prune</text>
         </div>
@@ -24,94 +25,60 @@
             <img class="nn" src="assets/images/pruned.svg">
         </div>
     </section>
+    <hr>
+    <section class="abstract text">
+        <h2>Abstract</h2>
 
-    <section class="abstract">
-        <h3>Abstract</h3>
         <p> Deep neural networks have been the state-of-the-art in machine learning for quite a while now; however, it is apparent that they are over-parameterized. Therefore, *pruning* of neural network weights is a valuable endeavor for utilizing NNs in practice—it makes them many times more lightweight, leading to significant gains in both memory and computational efficiency. Many convolutional neural networks are have two distinct parts: a feature extractor, with many convolutional layers that are computationally intense, and a classification layer, with a few dense, fully-connected layers that are memory intense. In this final project, we focus on pruning filters, implementing several different methods of pruning and comparing their efficacies. (Methods to prune and compress fully-connected layers include weight-quantization and huffman coding<a href=""><sup>[2]</sup></a>). </p>
     </section>
+    <hr>
+    <section class="introduction text">
+        <h2>Introduction</h2>
+    </section>
+    <hr>
+    <section class="related-work text">
+        <h2>Related Work</h2>
 
-# Example Project
+        <p>In recent years, there has been much interest in the area of neural network compression. The seminal paper of [1] explored several different methods of compression, including weight pruning, huffman coding, weight quantization, and weight sharing. In this project, we focus on pruning methods, but investigate means of pruning full feature maps in convolutional neural networks rather than single weights.</p>
 
+        <p>Our project compares [2, 3, 4, 5], which are all works that propose various methods of pruning feature maps. We repurpose the approaches, and analyze their efficacy based on the performance on the downstream transfer learning task described above. The approaches, along with their underlying assumptions,are discussed in detail in the next section</p>
+    </section>
+    <hr>
+    <section class="approach text">
+        <h2>Approach</h2>
 
-<br>
-<br>
-TODO Papers https://arxiv.org/pdf/2002.10179.pdf
+        <p>For our experiments, we first obtain a VGG-19 with batch norm that has been pretrained on ImageNet, prune a certain percent of feature maps from each layers, and fine-tune on the target dataset for five epochs using SGD with a very small learning rate (lr = 1e-5). We discuss all of the candidate pruning methods, and categorize them based on their assumptions, below.</p>
 
+        <h3>Data-Free Pruning Methods</h3>
+        <h4>K-means clustering</h4>
+        <p>In overparameterized models, there are typically many redundant filters that extract similar features. Therefore, a natural pruning objective is to maximize filter diversity in each convolutional layer. Therefore, if we want to retain n filters in a given layer, we apply k-means clustering to recover n centroids, and select the n filters that are closest to the centroids. We use Euclidean distance to quantify the distance between two filters.Note that this method applies clustering on the filters themselves, rather than their activations so this method is independent of the target dataset distribution.</p>
+
+        <h3>Label-Free Pruning Methods</h3>
+        <h4>L2 norm</h4>
+        <p>Intuitively, filters that produce low magnitude activations are probably less salient and can be safely removed. Based on this notion, we generate a small subset of data from the target dataset, pass it through the model, recover the activations of each layer, and retain the n filters whose feature maps have the highest L2-norms. This method relies on the target data, but does not require them to be labelled.</p>
+
+        <h4>"HRank" (high-rank)</h4>
+        <p>The HRank method, as proposed in [6], suggests using a slightly more sophisticated ranking criteria than the l2-norm of the feature maps. The paper argues that the rank of a feature map is a much more rich information measure that is more likely to be indicative of a filters saliency. This method is identical to the previous method, but instead of retaining the filters with the highest magnitudes, we retain the filters whose feature maps have the highest ranks. This method also requires us to feed a subset of the target dataset through the model.</p>
+
+        <h3>Label-Dependent Pruning Methods</h3>
+        <h4>Gradient-based</h4>
+        <p>The final method that we implement is one that incorporates information about the gradient into the saliency metric. Mathematically, the saliency of a particular weight in a filter map can be expressed as the following:
+            
+                            $$ s = | \frac{\partial L}{\partial w} w | $$
+            
+        To compute the saliency of the entire feature map, we simply sum over the saliencies of each individual weight. Intuitively, the gradient captures the degree to which the output of the model depends on a particular weight and thus can lead to a more informed pruning criteria. However, this method requires a labelled subset of the target dataset.</p>
+        <p>For the target dataset, we use the German Traffic Sign Recognition Benchmark [6] which consist of roughly 400000 images of traffic signs. We show some example images below.</p>
+    </section>
+    <hr>
+    <section class="results text">
+        <h2>Results</h2>
+    </section>
+    <hr>
+    <section class="discussion text">
+        <h2>Discussion</h2>
+    </section>
+https://arxiv.org/pdf/2002.10179.pdf
 https://arxiv.org/pdf/1510.00149.pdf
-Write a 3-4 sentence abstract. It should introduce the problem and your approach. You may also want some numbers like 35 mAP and 78% accuracy. You can use this example README for your project, you can use a different ordering for your website, or you can make a totally different website altogether!
-
-VIDEO GOES HERE (probably): Record a 2-3 minute long video presenting your work. One option - take all your figures/example images/charts that you made for your website and put them in a slide deck, then record the video over zoom or some other recording platform (screen record using Quicktime on Mac OS works well). The video doesn't have to be particularly well produced or anything.
-
-## Introduction
-
-In this section the problem you are working on. Maybe talk about why you thought it was interesting. Or why you think it needs to get solved.
-
-You may also want to say a little bit here about what you did. Not too much though. Don't give the whole game away.
-
-## Related Work
-
-In recent years, there has been much interest in the area of neural network compression. The seminal paper of [1] explored several different methods of compression,
-including weight pruning, huffman coding, weight quantization, and weight sharing. In this project, we focus on pruning methods, but investigate means of pruning full feature maps in
-convolutional neural networks rather than single weights.
-
-Our project compares [2, 3, 4, 5], which are all works that propose various methods of pruning feature maps. We repurpose the approaches, and analyze
-their efficacy based on the performance on the downstream transfer learning task described above. The approaches, along with their underlying assumptions,
-are discussed in detail in the next section
-
-
-## Approach
-For our experiments, we first obtain a VGG-19 with batch norm that has been pretrained on ImageNet, prune a certain percent of feature maps from each layers,
-and fine-tune on the target dataset for five epochs using SGD with a very small learning rate (lr = 1e-5). We discuss all of the candidate
-pruning methods, and categorize them based on their assumptions, below.
-
-### Data-Free Pruning Methods
-#### K-Means Clustering
-In overparameterized models, there are typically many redundant filters that extract similar features. Therefore, a natural pruning objective
-is to maximize filter diversity in each convolutional layer. Therefore, if we want to retain n filters in a given layer, we apply k-means clustering
-to recover n centroids, and select the n filters that are closest to the centroids. We use Euclidean distance to quantify the distance between two filters.
-Note that this method applies clustering on the filters themselves, rather than their activations so this method is independent of the target dataset distribution.
-
-### Label-Free Pruning Methods
-#### L2-norm
-Intuitively, filters that produce low magnitude activations are probably less salient and can be safely removed. Based on this notion, we generate a
-small subset of data from the target dataset, pass it through the model, recover the activations of each layer, and retain the n filters whose feature
-maps have the highest L2-norms. This method relies on the target data, but does not require them to be labelled.
-
-#### HRank
-The HRank method, as proposed in [6], suggests using a slightly more sophisticated ranking criteria than the l2-norm of the feature maps. The paper argues that
-the rank of a feature map is a much more rich information measure that is more likely to be indicative of a filters saliency. This method is identical to the
-previous method, but instead of retaining the filters with the highest magnitudes, we retain the filters whose feature maps have the highest ranks. This method
-also requires us to feed a subset of the target dataset through the model.
-
-### Label-dependent Pruning Methods
-#### Gradient Based Pruning
-The final method that we implement is one that incorporates information about the gradient into the saliency metric. Mathematically, the saliency of
-a particular weight in a filter map can be expressed as the following: <br><br>
-
-                $$ s = | \frac{\partial L}{\partial w} w | $$
-
-<br><br> To compute the saliency of the entire feature map, we simply sum over the saliencies of each individual weight. Intuitively, the gradient captures
-the degree to which the output of the model depends on a particular weight and thus can lead to a more informed pruning criteria. However, this
-method requires a labelled subset of the target dataset.
-
-
-
-
-
-For the target dataset, we use the German Traffic Sign Recognition Benchmark [6] which consist of roughly 400000 images of traffic signs. We show
-some example images below.
-
-
-## Results
-
-How did you evaluate your approach? How well did you do? What are you comparing to? Maybe you want ablation studies or comparisons of different methods.
-
-You may want some qualitative results and quantitative results. Example images/text/whatever are good. Charts are also good. Maybe loss curves or AUC charts. Whatever makes sense for your evaluation.
-
-## Discussion
-
-You can talk about your results and the stuff you've learned here if you want. Or discuss other things. Really whatever you want, it's your project.
-
 </body>
 
 </html>

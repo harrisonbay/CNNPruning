@@ -66,9 +66,17 @@ body {
     margin: 0;
 }
 
+hr {
+    border: 0;
+    border-top: 3px double #8c8c8c;
+    width: 800px;
+    margin-bottom: 50px;
+}
+
 .title {
     padding-top: 30px;
     padding-bottom: 0px;
+    text-align: center;
 }
 
 .title h1 {
@@ -89,18 +97,15 @@ body {
 .nncontainer {
     display: flex;
     justify-content: center;
-    margin-top: -20px;
+    margin-top: 0px;
 }
 
 .nn {
     width: 30%;
 }
 
-/* section:nth-child(even){
-    background:#eee;
-    /* color:#fff; */
+.text {
+    max-width: 1200px;
+    margin: auto;
+    text-align: justify;
 }
-    
-section:nth-child(odd){
-    background:#fff;
-} */
