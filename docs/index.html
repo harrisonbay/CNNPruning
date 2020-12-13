@@ -33,12 +33,12 @@
         <h2>Introduction</h2>
         Since the early 2010's, it is has become increasingly apparent that convolutional neural networks are the model of choice for most vision tasks, consistently achieving
         state of the art performance on image dataset benchmarks. Furthermore, these models learn representations that can be easily transferred; we can use a pretrained 
-        model and fine tune it on another dataset and still achieve strong performance. However, most neural networks are overparameterized which can lead to high latency at inference time, making them
-        suboptimal for deployment on real time systems (e.g. autonomous cars). <br>
+        model and fine tune it on a simpler target dataset and still achieve strong performance. However, most neural networks are overparameterized which can lead to high latency at inference time, making them
+        suboptimal for deployment on real time systems (e.g. autonomous cars). <br> <br>
         
         Therefore, for our final project we aim to compress a VGG19 that has been pretrained on ImageNet by pruning filters from the convolutional layers, and fine tune it on the German Traffic
         Sign Dataset. Our objective is to identify methods that allow us to remove a large number of filters from the model, while ensuring that the resulting pruned model can still effectively learn the target dataset.
-        In the scope of this project, we implement several different pruning methods and evaluate their effectiveness based on the validation set accuracy of the compressed model. 
+        In the scope of this project, we implement several different pruning methods and evaluate the effectiveness of each approach based on the how well compressed model generalizes on the target dataset. 
         
         
         
