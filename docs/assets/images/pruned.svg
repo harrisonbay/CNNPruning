@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1720 949" style="enable-background:new 0 0 1720 949;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.8;fill:#115283;stroke:#000000;stroke-width:0.6783;stroke-miterlimit:2.7132;enable-background:new    ;}
+	.st1{opacity:0.8;fill:#E0E0E0;stroke:#000000;stroke-width:0.6783;stroke-miterlimit:2.7132;enable-background:new    ;}
+	.st2{fill-opacity:0;stroke:#000000;stroke-width:0.6783;stroke-miterlimit:2.7132;stroke-opacity:0.8;}
+	.st3{fill:none;stroke:#000000;stroke-width:0.3392;stroke-miterlimit:2.7132;stroke-opacity:0.8;}
+	.st4{font-family:'ArialMT';}
+	.st5{font-size:51.1514px;}
+</style>
+<g transform="translate(338.16468262639273,150.72015687457196) scale(0.6783021637238381)">
+	<rect id="_x30__x5F_0" x="-472.6" y="154.3" class="st0" width="603.3" height="603.3"/>
+	<rect id="_x30__x5F_1" x="-434.9" y="192" class="st1" width="603.3" height="603.3"/>
+	<rect id="_x30__x5F_2" x="-397.2" y="229.7" class="st0" width="603.3" height="603.3"/>
+	<rect id="_x30__x5F_3" x="-359.5" y="267.4" class="st1" width="603.3" height="603.3"/>
+	<rect id="_x31__x5F_0" x="432.3" y="305.1" class="st0" width="301.6" height="301.6"/>
+	<rect id="_x31__x5F_1" x="470.1" y="342.8" class="st1" width="301.6" height="301.6"/>
+	<rect id="_x31__x5F_2" x="507.8" y="380.5" class="st0" width="301.6" height="301.6"/>
+	<rect id="_x31__x5F_3" x="545.5" y="418.2" class="st1" width="301.6" height="301.6"/>
+	<rect id="_x32__x5F_0" x="894.2" y="192" class="st0" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_1" x="931.9" y="229.7" class="st1" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_2" x="969.6" y="267.4" class="st0" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_3" x="1007.4" y="305.1" class="st1" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_4" x="1045.1" y="342.8" class="st0" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_5" x="1082.8" y="380.5" class="st1" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_6" x="1120.5" y="418.2" class="st0" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_7" x="1158.2" y="455.9" class="st1" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_8" x="1195.9" y="493.7" class="st0" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_9" x="1233.6" y="531.4" class="st1" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_10" x="1271.3" y="569.1" class="st0" width="226.2" height="226.2"/>
+	<rect id="_x32__x5F_11" x="1309" y="606.8" class="st1" width="226.2" height="226.2"/>
+	<rect id="conv_0" x="-124.2" y="329.9" class="st2" width="37.7" height="37.7"/>
+	<rect id="conv_1" x="618.7" y="506.7" class="st2" width="75.4" height="75.4"/>
+	<line id="conv_0_1_" class="st3" x1="-86.5" y1="367.6" x2="670.9" y2="451.6"/>
+	<line id="conv_0_2_" class="st3" x1="-86.5" y1="329.9" x2="670.9" y2="451.6"/>
+	<line id="conv_1_1_" class="st3" x1="694.1" y1="582.1" x2="1382.2" y2="695.2"/>
+	<line id="conv_1_2_" class="st3" x1="694.1" y1="506.7" x2="1382.2" y2="695.2"/>
+	<polygon id="fc_0" class="st1" points="1441,345.9 1488.1,345.9 1821.4,679.1 1774.2,679.1 	"/>
+	<polygon id="fc_1" class="st1" points="1830.8,445.9 1877.9,445.9 2011.2,579.2 1964.1,579.2 	"/>
+	<line id="fc_0_1_" class="st3" x1="1535.2" y1="833" x2="1774.2" y2="679.1"/>
+	<line id="fc_0_2_" class="st3" x1="1120.5" y1="192" x2="1441" y2="345.9"/>
+	<line id="fc_1_1_" class="st3" x1="1821.4" y1="679.1" x2="1964.1" y2="579.2"/>
+	<line id="fc_1_2_" class="st3" x1="1488.1" y1="345.9" x2="1830.8" y2="445.9"/>
+	<text transform="matrix(1.4743 0 0 1.4743 371.0738 897.1025)" class="st4 st5">Convolution</text>
+	<text transform="matrix(1.4743 0 0 1.4743 960.2237 897.1025)" class="st4 st5">Convolution</text>
+	<text transform="matrix(1.4743 0 0 1.4743 1500.722 897.1025)" class="st4 st5">Convolution</text>
+	<text transform="matrix(1.4743 0 0 1.4743 -472.5871 60.9843)" class="st4 st5">4@128x128</text>
+	<text transform="matrix(1.4743 0 0 1.4743 432.3452 211.8018)" class="st4 st5">4@64x64</text>
+	<text transform="matrix(1.4743 0 0 1.4743 894.2401 98.6862)" class="st4 st5">12@48x48</text>
+	<text transform="matrix(1.4743 0 0 1.4743 1440.968 252.5472)" class="st4 st5">1x100</text>
+	<text transform="matrix(1.4743 0 0 1.4743 1830.8015 352.5327)" class="st4 st5">1x40</text>
+</g>
+</svg>

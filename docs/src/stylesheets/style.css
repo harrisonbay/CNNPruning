@@ -1,0 +1,106 @@
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    src: url(../../assets/fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: bold;
+    src: url(../../assets/fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: "AndikaNewBasic";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../../assets/fonts/Andika_New_Basic/AndikaNewBasic-Regular.ttf);
+}
+@font-face {
+    font-family: "AndikaNewBasic";
+    font-style: normal;
+    font-weight: bold;
+    src: url(../../assets/fonts/Andika_New_Basic/AndikaNewBasic-Bold.ttf);
+}
+@font-face {
+    font-family: "AndikaNewBasic";
+    font-style: italic;
+    font-weight: normal;
+    src: url(../../assets/fonts/Andika_New_Basic/AndikaNewBasic-Italic.ttf);
+}
+@font-face {
+    font-family: "AndikaNewBasic";
+    font-style: italic;
+    font-weight: bold;
+    src: url(../../assets/fonts/Andika_New_Basic/AndikaNewBasic-BoldItalic.ttf);
+}
+
+html {
+    font-size: 16px;
+    font-family: "AndikaNewBasic", Arial, sans-serif;
+    color: #0b0f22;
+    scroll-behavior: smooth;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+}
+
+.title {
+    padding-top: 30px;
+    padding-bottom: 0px;
+}
+
+.title h1 {
+    font-size: 48px;
+    text-align: center;
+}
+
+.title h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+
+.diagram {
+    margin: auto;
+}
+
+.nncontainer {
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+}
+
+.nn {
+    width: 30%;
+}
+
+/* section:nth-child(even){
+    background:#eee;
+    /* color:#fff; */
+}
+    
+section:nth-child(odd){
+    background:#fff;
+} */

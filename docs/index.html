@@ -1,13 +1,43 @@
-this is the final project website for deep learning pruning by harrison bay and arnav das hi
+<!DOCTYPE HTML>
+<html xml:lang="en" lang="en">
 
+<head>
+    <title>CSE490G1 | Final Project</title>
+    <link rel="stylesheet" href="./src/stylesheets/style.css">
+</head>
+
+<body>
+    <section class="title">
+        <h1>Pruning CNNs</h1>
+        <h3>Harrison Bay &nbsp;&nbsp;&nbsp; Arnav Das</h3>
+        
+    </section>
+    <section class="diagram">
+        <div class="nncontainer">
+            <img class="nn" src="assets/images/unpruned.svg">
+        </div>
+        <div class="nncontainer" style="padding-top:50px; padding-bottom:50px;">
+            <img src="assets/images/arrow.svg">
+            <text>50% prune</text>
+        </div>
+        <div class="nncontainer">
+            <img class="nn" src="assets/images/pruned.svg">
+        </div>
+    </section>
+
+    <section class="abstract">
+        <h3>Abstract</h3>
+        <p> Deep neural networks have been the state-of-the-art in machine learning for quite a while now; however, it is apparent that they are over-parameterized. Therefore, *pruning* of neural network weights is a valuable endeavor for utilizing NNs in practice—it makes them many times more lightweight, leading to significant gains in both memory and computational efficiency. Many convolutional neural networks are have two distinct parts: a feature extractor, with many convolutional layers that are computationally intense, and a classification layer, with a few dense, fully-connected layers that are memory intense. In this final project, we focus on pruning filters, implementing several different methods of pruning and comparing their efficacies. (Methods to prune and compress fully-connected layers include weight-quantization and huffman coding<a href=""><sup>[2]</sup></a>). </p>
+    </section>
 
 # Example Project
 
-Deep neural networks have been the state-of-the-art in machine learning for quite a while now; however, it is apparent that they are over-parameterized. Therefore, *pruning* of neural network weights is a valuable endeavor for utilizing NNs in practice—it makes them many times more lightweight, leading to significant gains in both memory and computational efficiency. Many convolutional neural networks are have two distinct parts: a feature extractor, with many convolutional layers that are computationally intense, and a classification layer, with a few dense, fully-connected layers that are memory intense. In this final project, we focus on pruning filters, implementing several different methods of pruning and comparing their efficacies. (Methods to prune and compress fully-connected layers include weight-quantization, huffman coding)
 
 <br>
 <br>
 TODO Papers https://arxiv.org/pdf/2002.10179.pdf
+
+https://arxiv.org/pdf/1510.00149.pdf
 Write a 3-4 sentence abstract. It should introduce the problem and your approach. You may also want some numbers like 35 mAP and 78% accuracy. You can use this example README for your project, you can use a different ordering for your website, or you can make a totally different website altogether!
 
 VIDEO GOES HERE (probably): Record a 2-3 minute long video presenting your work. One option - take all your figures/example images/charts that you made for your website and put them in a slide deck, then record the video over zoom or some other recording platform (screen record using Quicktime on Mac OS works well). The video doesn't have to be particularly well produced or anything.
@@ -81,3 +111,9 @@ You may want some qualitative results and quantitative results. Example images/t
 ## Discussion
 
 You can talk about your results and the stuff you've learned here if you want. Or discuss other things. Really whatever you want, it's your project.
+
+</body>
+
+</html>
+
+
