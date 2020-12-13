@@ -4,6 +4,9 @@
 <head>
     <title>CSE490G1 | Final Project</title>
     <link rel="stylesheet" href="./src/stylesheets/style.css">
+    <script type="text/javascript"
+    src="https://www.maths.nottingham.ac.uk/plp/pmadw/LaTeXMathML.js">
+    </script>
 </head>
 
 <body>
@@ -29,21 +32,33 @@
     <section class="abstract text">
         <h2>Abstract</h2>
 
-        <p> Deep neural networks have been the state-of-the-art in machine learning for quite a while now; however, it is apparent that they are over-parameterized. Therefore, *pruning* of neural network weights is a valuable endeavor for utilizing NNs in practice—it makes them many times more lightweight, leading to significant gains in both memory and computational efficiency. Many convolutional neural networks are have two distinct parts: a feature extractor, with many convolutional layers that are computationally intense, and a classification layer, with a few dense, fully-connected layers that are memory intense. In this final project, we focus on pruning filters, implementing several different methods of pruning and comparing their efficacies. (Methods to prune and compress fully-connected layers include weight-quantization and huffman coding<a href=""><sup>[2]</sup></a>). </p>
+        <p> In the 2010s, deep neural networks have been the state-of-the-art in machine learning; however, it is apparent that they are over-parameterized. Therefore, <i>pruning</i> of neural network weights is a valuable endeavor for utilizing them in practice—it makes them many times more lightweight, leading to significant gains in both memory and computational efficiency. Many convolutional neural networks consist of two distinct parts: a feature extractor, with many convolutional layers that are computationally intense, and a classification layer, with a few dense, fully-connected layers that are memory intense. In this final project, we focus on pruning filters, implementing several different strategies and comparing their efficacies. 
     </section>
     <hr>
     <section class="introduction text">
         <h2>Introduction</h2>
+        What is pruning?
+        How do we achieve it?
+        
     </section>
     <hr>
     <section class="related-work text">
         <h2>Related Work</h2>
 
-        <p>In recent years, there has been much interest in the area of neural network compression. The seminal paper of [1] explored several different methods of compression, including weight pruning, huffman coding, weight quantization, and weight sharing. In this project, we focus on pruning methods, but investigate means of pruning full feature maps in convolutional neural networks rather than single weights.</p>
+        <p>In recent years, there has been much interest in the area of neural network compression. The seminal paper of "Deep Compression: Compressing Deep Neural Networks With Pruning, Trained Quantization and Huffman Coding" explored several different methods of neural network compression (<a href="https://arxiv.org/pdf/1510.00149.pdf">Han et al., 2016</a>). In particular, the paper focuses on methods that compress based on  individual weights: they propose pruning by simply zeroing out weights below a certain magnitude, and weight quantization "bins" individual weights to discrete values. In contrast, our project focuses on pruning entire convolutional filters.</p>
 
-        <p>Our project compares [2, 3, 4, 5], which are all works that propose various methods of pruning feature maps. We repurpose the approaches, and analyze their efficacy based on the performance on the downstream transfer learning task described above. The approaches, along with their underlying assumptions,are discussed in detail in the next section</p>
+        https://arxiv.org/pdf/2002.10179.pdf (hrank)
+        <p>Two of the pruning methods we tested in our project include rank-based pruning and gradient-based pruning introduced by <a href="https://arxiv.org/pdf/2002.10179.pdf">Lin et al., 2020</a> and <a href="https://arxiv.org/pdf/1611.06440.pdf">Molchanov et al. 2017</a>, respectively. We repurpose the approaches and analyze their efficacy based on the performance on the downstream transfer learning task described above. The approaches, along with their underlying assumptions, are discussed in detail below.</p>
+
+        <a href="#related-work-footnote">[1, 2, 3, 4]</a>
     </section>
     <hr>
+    <section id="related-work-footnote" class="footnote text">
+        <!-- TODO: footnote css -->
+        <ul>
+            <li>[2] Lin et. al, 2020. "HRank, Filter Pruning using High-Rank Feature Map"</li>
+        </ul>
+    </section>
     <section class="approach text">
         <h2>Approach</h2>
 
@@ -64,10 +79,10 @@
         <h4>Gradient-based</h4>
         <p>The final method that we implement is one that incorporates information about the gradient into the saliency metric. Mathematically, the saliency of a particular weight in a filter map can be expressed as the following:
             
-                            $$ s = | \frac{\partial L}{\partial w} w | $$
+                            $ s = | \frac{\partial L}{\partial w} w | $
             
         To compute the saliency of the entire feature map, we simply sum over the saliencies of each individual weight. Intuitively, the gradient captures the degree to which the output of the model depends on a particular weight and thus can lead to a more informed pruning criteria. However, this method requires a labelled subset of the target dataset.</p>
-        <p>For the target dataset, we use the German Traffic Sign Recognition Benchmark [6] which consist of roughly 400000 images of traffic signs. We show some example images below.</p>
+        <p>For the target dataset, we use a portion of the German Traffic Sign Recognition Benchmark https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign [6] which consist of roughly 53000 images of traffic signs (40000 training and 13000 validation). We show some example images below.</p>
     </section>
     <hr>
     <section class="results text">
