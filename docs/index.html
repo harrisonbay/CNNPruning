@@ -93,6 +93,15 @@
 
     <section class="discussion text">
         <h2>Discussion</h2>
+        <p> As expected, the gradient based method outperforms the HRank and L2 norm pruning methods. However, to our surprise, the data free method of K-Means clustering appears to 
+            achieve the best results out of all the methods we implemented. This could suggest, more generally, that filter diversity is important to consider when formulating a pruning criteria. <p>
+        
+        <p> There are many possible ways to improve upon our results. For starters, we apply a uniform pruning ratio to all convolutional layers in the network. However, it is entirely possible
+            that better reuslts are attainable if a heuristic is used to determine the number of filters to be pruned in a layer based on its depth. Furthermore, we only explore pruning filters and 
+            do not apply any compression to the dense layers. While this is able to significantly reduce the number of floating point operations at inference time, we are hardly able to reduce memory usage. 
+            At a more fundamental level, it is also important to ask whether it is better to train a large model and apply pruning afterwards or simply to train a smaller model to begin with. <p>
+            
+        
     </section>
     <script src="src/js/viz.js"></script>
 </body>
