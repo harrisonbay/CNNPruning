@@ -4,9 +4,12 @@
 <head>
     <title>CSE490G1 | Final Project</title>
     <link rel="stylesheet" href="./src/stylesheets/style.css">
-    <script type="text/javascript"
-    src="https://www.maths.nottingham.ac.uk/plp/pmadw/LaTeXMathML.js">
-    </script>
+    <script type="text/javascript" src="https://www.maths.nottingham.ac.uk/plp/pmadw/LaTeXMathML.js"></script>
+    <script src="../node_modules/arquero/dist/arquero.min.js"></script>
+    <script src="../node_modules/vega/build/vega.min.js"></script>
+    <script src="../node_modules/vega-lite/build/vega-lite.min.js"></script>
+    <script src="../node_modules/vega-lite-api/build/vega-lite-api.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
 </head>
 
 <body>
@@ -85,11 +88,13 @@
 
     <section id="results" class="results text">
         <h2>Results</h2>
+        <div id="vis"></div>
     </section>
 
     <section class="discussion text">
         <h2>Discussion</h2>
     </section>
+    <script src="src/js/viz.js"></script>
 </body>
 
 </html>

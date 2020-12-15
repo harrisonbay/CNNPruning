@@ -112,9 +112,14 @@ hr {
 .text h2 {
     text-align: center;
 }
+
 .displaymath {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 20px;
     text-align: center;
+}
+
+.vis {
+    justify-content: center;
 }
