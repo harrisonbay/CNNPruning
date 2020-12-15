@@ -92,20 +92,17 @@
     <section id="results" class="results text">
         <h2>Results</h2>
         <div id="vis" class="vis"></div>
-        <p>As we can see in the above chart, l2-norm pruning clearly performs the worst. This was expected as it was our baseline pruning method. Surprisingly, k-means clustering pruning appeared to perform about on par, or even a little bit better, than gradient pruning. Hover over specific data points if you wish to look at the accuracies in detail.
+        <p>As we can see in the above chart, l2-norm pruning clearly performs the worst. This was expected as it was our baseline pruning method. The gradient-based method outperforms the HRank and l2-norm pruning methods, which was also consistent with our expectations. However, to our surprise, k-means clustering pruning appeared to perform about on par, or even a little bit better, than gradient pruning. This could suggest, more generally, that filter diversity is important to consider when formulating a pruning criteria. Hover over specific data points if you wish to look at the accuracies in detail.
     </section>
 
     <section class="discussion text">
         <h2>Discussion</h2>
-        <p> As expected, the gradient based method outperforms the HRank and L2 norm pruning methods. However, to our surprise, the data free method of K-Means clustering appears to 
-            achieve the best results out of all the methods we implemented. This could suggest, more generally, that filter diversity is important to consider when formulating a pruning criteria. <p>
-        
         <p> There are many possible ways to improve upon our results. For starters, we apply a uniform pruning ratio to all convolutional layers in the network. However, it is entirely possible
-            that better reuslts are attainable if a heuristic is used to determine the number of filters to be pruned in a layer based on its depth. Furthermore, we only explore pruning filters and 
+            that better results are attainable if a heuristic is used to determine the number of filters to be pruned in a layer based on its depth. Furthermore, we only explore pruning filters and 
             do not apply any compression to the dense layers. While this is able to significantly reduce the number of floating point operations at inference time, we are hardly able to reduce memory usage. 
             At a more fundamental level, it is also important to ask whether it is better to train a large model and apply pruning afterwards or simply to train a smaller model to begin with. <p>
             
-        <p> Through the experiments carried out in this final project, we have successfully shown that the compuational costs of neural networks can significantly reduced through filter pruning <p>
+        <p> Through the experiments carried out in this final project, we have successfully shown that the compuational costs of neural networks can significantly reduced through filter pruning. <p>
         
     </section>
 
