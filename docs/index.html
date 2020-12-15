@@ -54,19 +54,25 @@
 
     <section class="data text">
         <h2>Data</h2>
-        
+        <figure>
+          <img src="assets/images/samples.png" style="height:400px; width:400px;">
+        </figure>
+        <h5 style="text-align:center;">Sample processed training images</h5>
         <p>For the target dataset, we use a portion of the <a href="https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign">German Traffic Sign Recognition Benchmark</a>  which consists of roughly 53000 images of traffic signs (40000 training and 13000 validation). Training was done on Google Colab, so we had to figure out how to get our data onto Google Drive. We initially uploaded all of the training images to Google Drive with <a href="https://rclone.org/">rclone</a>. However, this was not a good solution since there is a lot of latency when using <span style="font-family: menlo;">imread</span> to read in images through Google Drive. As an alternative solution, we pre-processed the data locally with <a href="https://www.h5py.org/">h5py</a> and <a href="https://scikit-image.org/">skimage</a> and applied some transformations, namely: 
             <ol>
                 <li>Cropped the image with the bounding box labels provided;</li>
                 <li>Resized the image to 32 by 32 pixels;</li>
                 <li>Performed contrast-limited adaptive histogram equalization (CLAHE) on the images.</li>
             </ol>
-        The pre-processing script is available with the source code. We show (CLAHE-d) example images of the dataset below:</p>
+        The pre-processing script is available with the source code. We show (CLAHE-d) example images of the dataset above.</p>
     </section>
 
     <section class="approach text">
         <h2>Approach</h2>
-
+        <figure>
+          <img src="assets/images/filters.png" style="height:499px; width:1000px;">
+        </figure>
+        <h5 style="text-align:center;">0.25 pruning ratio performed by k-means clustering (64->16 filters)</h5>
         <p>For our experiments, we obtain a VGG-19 network with batch normalization that has been pretrained on ImageNet, prune a certain percentage of the filters from each convolutional layer, then fine-tune on the target dataset for three epochs with stochastic gradient descent with a learning rate lr = 1e-3 (other hyperparameters available in the code). We discuss all of the candidate pruning methods and categorize them based on their assumptions below.</p>
 
         <h3>Data-Free Pruning Methods</h3>
