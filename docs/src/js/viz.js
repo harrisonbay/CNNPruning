@@ -45,14 +45,14 @@ var dataFinal = dataTable.objects();
 test = vl.markLine()
     .data(dataFinal)
     .encode(
-    vl.x().fieldQ('ratio').title('Pruning Ratios').scale({"type": "log"}),
+    vl.x().fieldQ('ratio').title('Fraction of Filters Kept (per layer)').scale({"type": "log"}),
     vl.y().fieldQ('val_acc').title("Validation Accuracy (%)"),
     vl.color().fieldN('method').legend({"titleFont":"Times New Roman", "title":"Pruning Method", "titleFontSize":"16", "labelFont":"Times New Roman", "labelFontSize":"14"}),
     vl.shape().fieldN('method').legend(null),
     vl.tooltip([vl.fieldN('method'), vl.fieldQ('ratio'), vl.fieldQ('val_acc')])
     )
-    .height(600)
-    .width(1200)
+    .height(400)
+    .width(800)
     .render()
     .then(viewElement => {
         document.getElementById('vis').appendChild(viewElement);
