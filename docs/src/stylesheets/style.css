@@ -73,6 +73,11 @@ hr {
     margin-bottom: 50px;
 }
 
+figure {
+    display: flex;
+    justify-content: center;
+}
+
 .title {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -123,9 +128,4 @@ iframe {
     margin-bottom: 20px;
     font-size: 20px;
     text-align: center;
-}
-
-.vis {
-    display: flex;
-    justify-content: center;
 }
