@@ -103,6 +103,11 @@ hr {
     width: 30%;
 }
 
+iframe {
+    display: block;
+    margin: 0 auto;
+}
+
 .text {
     max-width: 1000px;
     margin: auto;
@@ -121,5 +126,6 @@ hr {
 }
 
 .vis {
+    display: flex;
     justify-content: center;
 }

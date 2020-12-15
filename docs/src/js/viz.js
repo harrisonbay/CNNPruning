@@ -1,6 +1,4 @@
 // setup API options
-console.log(window.location.pathname)
-
 const options = {
     config: {
       // Vega-Lite default configuration
@@ -58,12 +56,12 @@ test = vl.markLine()
     .encode(
     vl.x().fieldQ('ratio').title('Fraction of Filters Kept (per layer)').scale({"type": "log"}),
     vl.y().fieldQ('val_acc').title("Validation Accuracy (%)"),
-    vl.color().fieldN('method').legend({"titleFont":"Times New Roman", "title":"Pruning Method", "titleFontSize":"16", "labelFont":"Times New Roman", "labelFontSize":"14"}),
+    vl.color().fieldN('method').legend({"titleFont":"AndikaNewBasic", "title":"Pruning Method", "titleFontSize":"16", "labelFont":"AndikaNewBasic", "labelFontSize":"14"}),
     vl.shape().fieldN('method').legend(null),
     vl.tooltip([vl.fieldN('method'), vl.fieldQ('ratio'), vl.fieldQ('val_acc')])
     )
-    .height(800)
-    .width(1600)
+    .height(600)
+    .width(1000)
     .render()
     .then(viewElement => {
         document.getElementById('vis').appendChild(viewElement);

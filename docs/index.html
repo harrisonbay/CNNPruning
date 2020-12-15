@@ -4,12 +4,11 @@
 <head>
     <title>CSE490G1 | Final Project</title>
     <link rel="stylesheet" href="./src/stylesheets/style.css">
-    <script type="text/javascript" src="https://www.maths.nottingham.ac.uk/plp/pmadw/LaTeXMathML.js"></script>
-    <script src="./node_modules/arquero/dist/arquero.min.js"></script>
-    <script src="./node_modules/vega/build/vega.min.js"></script>
-    <script src="./node_modules/vega-lite/build/vega-lite.min.js"></script>
-    <script src="./node_modules/vega-lite-api/build/vega-lite-api.min.js"></script>
-    <script src="./node_modules/vega-tooltip/build/vega-tooltip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@latest"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip@latest"></script>
 </head>
 
 <body>
@@ -31,7 +30,11 @@
             <img class="nn" src="assets/images/pruned.svg">
         </div>
     </section>
+
     <hr>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0fu1qMV1HWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
     <section class="introduction text">
         <h2>Introduction</h2>
         <p> Since the early 2010's, it is has become increasingly apparent that convolutional neural networks are the model of choice for most vision tasks, consistently achieving
@@ -81,14 +84,15 @@
         <h4>Gradient-based</h4>
         <p>The final method that we implement is one that incorporates information about the gradient into our evaluation metric. Mathematically, the <b><i>saliency</i></b> of a particular weight in a filter can be expressed as the following:</p>
         <div class="displaymath">
-            s = |∂L / ∂w|
+            s = |w(∂L / ∂w)|
         </div>
         <p>To compute the saliency of the entire filter, we simply sum over the saliencies of each individual weight. Intuitively, the gradient captures the degree to which the output of the model depends on a particular weight and thus can lead to a more informed pruning criteria. However, this method requires a labeled subset of the target dataset.</p>
     </section>
 
     <section id="results" class="results text">
         <h2>Results</h2>
-        <div id="vis"></div>
+        <div id="vis" class="vis"></div>
+        <p>As we can see in the above chart, l2-norm pruning clearly performs the worst. This was expected as it was our baseline pruning method. Surprisingly, k-means clustering pruning appeared to perform about on par, or even a little bit better, than gradient pruning. Hover over specific data points if you wish to look at the accuracies in detail.
     </section>
 
     <section class="discussion text">
@@ -103,6 +107,7 @@
             
         
     </section>
+
     <script src="src/js/viz.js"></script>
 </body>
 
