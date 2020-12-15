@@ -14,7 +14,7 @@ drive.mount('/gdrive/', force_remount=True)
 import os
 
 # BASE_PATH = '/gdrive/MyDrive/DL Final Project/' 
-BASE_PATH = '/gdrive/My Drive/CSE 490G1543/DL Final Project/' 
+BASE_PATH = '/gdrive/My Drive/CSE 490G1543/DL Final Project/'
 DATA_PATH = BASE_PATH + 'German/'
 
 os.chdir(BASE_PATH)
