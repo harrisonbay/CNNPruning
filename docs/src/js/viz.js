@@ -1,4 +1,6 @@
 // setup API options
+console.log(window.location.pathname)
+
 const options = {
     config: {
       // Vega-Lite default configuration
@@ -17,7 +19,6 @@ const options = {
     },
   };
 
-console.log(window.location.pathname)
 // register vega and vega-lite with the API
 vl.register(vega, vegaLite, options); 
 
@@ -28,7 +29,7 @@ var data = ({
     "K-means": [98.12351543942992, 98.25811559778306, 97.72763262074426, 96.14410134600158, 96.53998416468725, 94.89311163895486, 91.60728424386382, 85.17814726840855, 5.938242280285036]
   });
 
-// potentially buggy 2nd trial
+// potentially buggy 2nd trial (we're not displaying this)
 //   grad = [98.3372921615202, 98.06017418844023, 97.8068091844814, 95.91448931116389, 95.93824228028504, 92.39904988123516, 87.71179730799683, 84.0221694378464, 45.24940617577197]
   
 //   l2 = [98.3372921615202, 97.6880443388757, 97.14172604908947, 94.29928741092637, 93.50752177355503, 93.26999208234362, 5.7007125890736345, 5.225653206650831, 5.225653206650831]
