@@ -129,3 +129,32 @@ iframe {
     font-size: 20px;
     text-align: center;
 }
+
+footer {
+    /* margin-top: 3rem; */
+    /* padding: 1rem 1rem; */
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+    border-top: 2px solid #000;
+}
+
+.about-container {
+    max-width: 65rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-links {
+    width: 10rem;
+    margin: 0 0 0 2rem;
+}
+
+.about-text {
+    width: calc(100% - 10rem);
+    display: flex;
+    flex-direction: column;
+}

@@ -101,7 +101,7 @@
         <p>As we can see in the above chart, l2-norm pruning clearly performs the worst. This was expected as it was our baseline pruning method. The gradient-based method outperforms the HRank and l2-norm pruning methods, which was also consistent with our expectations. However, to our surprise, k-means clustering pruning appeared to perform about on par, or even a little bit better, than gradient pruning. This could suggest, more generally, that filter diversity is important to consider when formulating a pruning criteria. Hover over specific data points if you wish to look at the accuracies in detail.
     </section>
 
-    <section class="discussion text">
+    <section class="discussion text" style="margin-bottom: 120px;">
         <h2>Discussion</h2>
         <p> There are many possible ways to improve upon our results. For starters, we apply a uniform pruning ratio to all convolutional layers in the network. However, it is entirely possible
             that better results are attainable if a heuristic is used to determine the number of filters to be pruned in a layer based on its depth. Furthermore, we only explore pruning filters and 
@@ -111,6 +111,14 @@
         <p> Through the experiments carried out in this final project, we have successfully shown that the compuational costs of neural networks can significantly reduced through filter pruning. <p>
         
     </section>
+
+    <footer id="about">
+      <div class="about-container">
+        <div class="about-text">
+          <p>This page was created as the Final Project for CSE 490G1/599, au20 at the University of Washington.</p>
+        </div>
+      </div>
+    </footer>
 
     <script src="src/js/viz.js"></script>
 </body>
