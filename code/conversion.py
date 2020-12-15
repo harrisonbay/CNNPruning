@@ -45,5 +45,5 @@ def convert_file(read_path, write_path, csv_string):
 
 WRITE_PATH = os.path.join(WRITE_PATH, "Train.h5")
 convert_file(READ_PATH, WRITE_PATH, 'Train.csv')
-# WRITE_PATH = os.path.join(WRITE_PATH, "Test.h5")
-# convert_file(READ_PATH, WRITE_PATH, "Test.csv")
+WRITE_PATH = os.path.join(WRITE_PATH, "Test.h5")
+convert_file(READ_PATH, WRITE_PATH, "Test.csv")
